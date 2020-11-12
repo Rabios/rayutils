@@ -367,9 +367,6 @@ void UnloadMusics(Music *musics, int count);                                  		
 ### module: updaters
 
 ```c
-//----------------------------------------------------------------------------------
-// module: updaters
-//----------------------------------------------------------------------------------
 void UpdateCameras(Camera **cameras, int count);                                                  // Update multiple cameras
 void UpdateVrTrackings(Camera **camera, int count);                                               // Update VR trackings of cameras
 void UpdateMusics(Music *musics, int count);                                                      // Upsate music streams from array
