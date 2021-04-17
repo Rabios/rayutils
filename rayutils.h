@@ -1,6 +1,6 @@
 // Written by Rabia Alhaffar in 5/November/2020
 // rayutils, Single-Header Additional functions for raylib game programming library!
-// Updated: 12/November/2020
+// Updated: 17/April/2021
 #ifdef RAYLIB_H
 
 #ifndef RAYUTILS_H
@@ -383,6 +383,7 @@ RLAPI void UpdateAudioStreams(AudioStream *streams, const void **data, int *samp
 //----------------------------------------------------------------------------------
 // Functions implementation
 //----------------------------------------------------------------------------------
+#if defined(RAYUTILS_IMPL)
 void MapKeyboardControls(Vector2 *position, float velocity) {
 	if (IsKeyDown(KEY_W) || IsKeyDown(KEY_UP)) position->y -= velocity;
 	if (IsKeyDown(KEY_S) || IsKeyDown(KEY_DOWN)) position->y += velocity;
@@ -1555,5 +1556,5 @@ void UpdateSounds(Sound *sounds, const void **data, int *samplesCount, int count
 void UpdateAudioStreams(AudioStream *streams, const void **data, int *samplesCount, int count) {
 	for (int i = 0; i < count; i++) UpdateAudioStream(streams[i], &data[i], samplesCount[i]);
 }
-
+#endif
 #endif
