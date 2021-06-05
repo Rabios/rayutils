@@ -1,6 +1,6 @@
 // Written by Rabia Alhaffar in 5/November/2020
 // rayutils, Single-Header Additional functions for raylib game programming library!
-// Updated: 17/April/2021
+// Updated: 5/June/2021
 #ifdef RAYLIB_H
 
 #ifndef RAYUTILS_H
@@ -131,26 +131,6 @@
 // Structs
 //----------------------------------------------------------------------------------
 
-// raylib game struct
-typedef struct Game {
-    int x;              // Window x position
-    int y;              // Window y position
-    int width;          // Window width
-    int height;         // Window height
-    
-    const char *title;  // Window title
-    int fps;            // Game FPS
-    int exitKey;        // Exit key (Defaults to escape)
-    Image icon;         // Window icon
-    
-    bool msaa;          // Enable/Disable MSAA 4X
-    bool vsync;         // Enable/Disable VSync
-    bool fullscreen;    // Enable/Disable Fullscreen
-    bool resizable;     // Enable/Disable Window being resizable
-    bool undecorated;   // Enable/Disable Window being undecorated (Defaults to false)
-    bool cursor;        // Enable/Disable Cursor
-} Game;
-
 // NOTE: The structs below used for drawing via arrays!
 // Circle struct
 typedef struct Circle {
@@ -256,11 +236,8 @@ typedef struct Plane {
 //----------------------------------------------------------------------------------
 // module: core
 //----------------------------------------------------------------------------------
-RLAPI const char *GetOS(void);                                						  // Returns current operating system used
-RLAPI void DownloadFile(const char *src, const char *dir);    						  // Downloads file using curl from link src to folder (path) dir
-RLAPI void Execute(const char *command);                      						  // Executes command via command prompt/terminal
-RLAPI void MapKeyboardControls(Vector2 *position, float velocity);		              // Map player position which is Vector2 to keyboard movement controls (Easy to make player)
-RLAPI void MapGamepadControls(Vector2 *position, float velocity, int gamepad_index);  // Map player position which is Vector2 to gamepad movement controls (Easy to make player)
+RLAPI void DownloadFile(const char *src, const char *dir);    					   // Downloads file using curl from link src to folder (path) dir
+RLAPI void Execute(const char *command);                      					   // Executes command via command prompt/terminal
 
 //----------------------------------------------------------------------------------
 // module: multiples
@@ -328,15 +305,6 @@ RLAPI void DrawTexturePro3D(Texture2D texture, Rectangle sourceRec, Rectangle de
 RLAPI void DrawTextureSuper(Texture2D texture, int posX, int posY, float rotation, float scale, Color tint);                                                                                // Same as DrawTexture but with scale and rotation
 
 //----------------------------------------------------------------------------------
-// module: Game
-//----------------------------------------------------------------------------------
-#ifdef RLGL_H
-RLAPI void ScaleGame(Game game);                                                    // Scales game window and graphics...
-#endif
-RLAPI void InitGame(Game game);                               						// Initializes raylib game directly
-RLAPI Game GetDefaultGame(void);                                                    // Returns default game struct that can used by raylib
-
-//----------------------------------------------------------------------------------
 // module: loaders
 //----------------------------------------------------------------------------------
 RLAPI Image *LoadImages(const char **files, int count);                                     			// Load images from array of images file paths
@@ -373,7 +341,6 @@ RLAPI void UnloadMusics(Music *musics, int count);                              
 // module: updaters
 //----------------------------------------------------------------------------------
 RLAPI void UpdateCameras(Camera **cameras, int count);                                                  // Update multiple cameras
-RLAPI void UpdateVrTrackings(Camera **camera, int count);                                               // Update VR trackings of cameras
 RLAPI void UpdateMusics(Music *musics, int count);                                                      // Upsate music streams from array
 RLAPI void UpdateTextures(Texture2D *textures, const void **pixels, int count);                         // Update textures from arrays
 RLAPI void UpdateModelAnimations(Model *models, ModelAnimation *animations, int *frames, int count);    // Update model animations from arrays
@@ -384,96 +351,6 @@ RLAPI void UpdateAudioStreams(AudioStream *streams, const void **data, int *samp
 // Functions implementation
 //----------------------------------------------------------------------------------
 #if defined(RAYUTILS_IMPL)
-void MapKeyboardControls(Vector2 *position, float velocity) {
-	if (IsKeyDown(KEY_W) || IsKeyDown(KEY_UP)) position->y -= velocity;
-	if (IsKeyDown(KEY_S) || IsKeyDown(KEY_DOWN)) position->y += velocity;
-	if (IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT)) position->x -= velocity;
-	if (IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT)) position->x += velocity;
-}
-
-void MapGamepadControls(Vector2 *position, float velocity, int gamepad_index) {
-	if (IsGamepadAvailable(gamepad_index)) {
-		if (IsGamepadButtonDown(gamepad_index, GAMEPAD_BUTTON_LEFT_FACE_UP)) position->y -= velocity;
-		if (IsGamepadButtonDown(gamepad_index, GAMEPAD_BUTTON_LEFT_FACE_DOWN)) position->y += velocity;
-		if (IsGamepadButtonDown(gamepad_index, GAMEPAD_BUTTON_LEFT_FACE_LEFT)) position->x -= velocity;
-		if (IsGamepadButtonDown(gamepad_index, GAMEPAD_BUTTON_LEFT_FACE_RIGHT)) position->x += velocity;
-	}
-}
-
-Game GetDefaultGame(void) {
-	Game _ = {0};
-	_.title = "GAME";
-	_.vsync = true;
-	_.fullscreen = false;
-	_.msaa = true;
-	_.resizable = false;
-	_.undecorated = false;
-	_.width = 800;
-	_.height = 450;
-	_.x = _.width / 2;
-	_.y = (_.height / 3) - 100;
-	_.icon = LoadImage("raylib.ico");
-	_.cursor = true;
-	_.fps = 60;
-	return _;
-}
-
-void InitGame(Game game) {
-    if (game.vsync) SetConfigFlags(FLAG_VSYNC_HINT);
-    if (game.fullscreen) SetConfigFlags(FLAG_FULLSCREEN_MODE);
-    if (game.msaa) SetConfigFlags(FLAG_MSAA_4X_HINT);
-    if (game.resizable) SetConfigFlags(FLAG_WINDOW_RESIZABLE);
-    if (game.undecorated) SetConfigFlags(FLAG_WINDOW_UNDECORATED);
-    InitWindow(game.width, game.height, game.title);
-    SetWindowPosition(game.x, game.y);
-    SetWindowIcon(game.icon);
-    if (!game.cursor) {
-        HideCursor();
-    } else {
-        ShowCursor();
-    }
-    if (!game.exitKey) {
-        SetExitKey(KEY_ESCAPE);
-    } else {
-        SetExitKey(game.exitKey);
-    }
-    if (game.fps) SetTargetFPS(game.fps);
-    SetTextureFilter(GetFontDefault().texture, FILTER_POINT);
-}
-
-const char *GetOS(void)
-{
-    #ifdef _WIN32 || _WIN64
-        return "Windows";
-    #elif __MACH__ || TARGET_OS_MAC
-        return "OSX";
-    #elif __linux__
-        return "Linux";
-    #elif __unix__
-        return "Unix";   
-    #elif __ANDROID__
-        return "Android";
-    #elif TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR || TARGET_OS_EMBEDDED
-        return "iOS";  
-    #elif __sun
-        return "Solaris";
-    #elif __FreeBSD__
-        return "FreeBSD";
-    #elif __OpenBSD__
-        return "OpenBSD";
-    #elif __NetBSD__
-        return "NetBSD";
-    #elif __DragonFly__
-        return "DragonFlyBSD";
-    #elif BSD
-        return "BSD";
-    #elif __hpux
-        return "HPUX";
-    #else
-        return "";
-    #endif
-}
-
 // This function used by DownloadFile
 // https://stackoverflow.com/questions/2736753/how-to-remove-extension-from-file-name
 const char *remove_extension(char* myStr, char extSep, char pathSep) {
@@ -526,7 +403,7 @@ void DownloadFile(const char *src, const char *dir)
 void Execute(const char *command)
 {
     #ifndef TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR || TARGET_OS_EMBEDDED
-        #elif __ANDROID__
+        #ifdef __ANDROID__
             if (fork() == 0) return system(command);
         #else
             return system(command);
@@ -1340,10 +1217,6 @@ void DrawGridEx(Vector3 center, Vector3 rotationAxis, float rotationAngle, int s
     rlPopMatrix();
 }
 
-void ScaleGame(Game game) {
-    SetWindowSize(game.width, game.height);
-    rlViewport(0, 0, game.width, game.height);
-}
 #endif
 
 void DrawTextureSuper(Texture2D texture, int posX, int posY, float rotation, float scale, Color tint)
@@ -1531,10 +1404,6 @@ void UnloadMusics(Music *musics, int count) {
 
 void UpdateCameras(Camera **cameras, int count) {
 	for (int i = 0; i < count; i++) UpdateCamera(&cameras[i]);
-}
-
-void UpdateVrTrackings(Camera **cameras, int count) {
-	for (int i = 0; i < count; i++) UpdateVrTracking(&cameras[i]);
 }
 
 void UpdateMusics(Music *musics, int count) {

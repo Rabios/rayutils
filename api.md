@@ -127,26 +127,6 @@ rayutils add 116 colors to list!
 ### Structs
 
 ```c
-// raylib game struct
-typedef struct Game {
-    int x;              // Window x position
-    int y;              // Window y position
-    int width;          // Window width
-    int height;         // Window height
-    
-    const char *title;  // Window title
-    int fps;            // Game FPS
-    int exitKey;        // Exit key (Defaults to escape)
-    Image icon;         // Window icon
-    
-    bool msaa;          // Enable/Disable MSAA 4X
-    bool vsync;         // Enable/Disable VSync
-    bool fullscreen;    // Enable/Disable Fullscreen
-    bool resizable;     // Enable/Disable Window being resizable
-    bool undecorated;   // Enable/Disable Window being undecorated (Defaults to false)
-    bool cursor;        // Enable/Disable Cursor
-} Game;
-
 // NOTE: The structs below used for drawing via arrays!
 // Circle struct
 typedef struct Circle {
@@ -249,11 +229,8 @@ typedef struct Plane {
 ### module: core
 
 ```c
-const char *GetOS(void);                                						 // Returns current operating system used
 void DownloadFile(const char *src, const char *dir);    					     // Downloads file using curl from link src to folder (path) dir
 void Execute(const char *command);                      						 // Executes command via command prompt/terminal
-void MapKeyboardControls(Vector2 *position, float velocity);		             // Map player position which is Vector2 to keyboard movement controls (Easy to make player)
-void MapGamepadControls(Vector2 *position, float velocity, int gamepad_index);   // Map player position which is Vector2 to gamepad movement controls (Easy to make player)
 ```
 
 ### module: multiples
@@ -321,14 +298,6 @@ void DrawTexturePro3D(Texture2D texture, Rectangle sourceRec, Rectangle destRec,
 void DrawTextureSuper(Texture2D texture, int posX, int posY, float rotation, float scale, Color tint);                                                                              // Same as DrawTexture but with scale and rotation
 ```
 
-### module: Game
-
-```c
-void InitGame(Game game);                    // Initializes raylib game directly
-Game GetDefaultGame(void);                   // Returns default game struct that can used by raylib
-void ScaleGame(Game game);                   // Scales game window and graphics...
-```
-
 ### module: loaders
 
 ```c
@@ -368,7 +337,6 @@ void UnloadMusics(Music *musics, int count);                                  		
 
 ```c
 void UpdateCameras(Camera **cameras, int count);                                                  // Update multiple cameras
-void UpdateVrTrackings(Camera **camera, int count);                                               // Update VR trackings of cameras
 void UpdateMusics(Music *musics, int count);                                                      // Upsate music streams from array
 void UpdateTextures(Texture2D *textures, const void **pixels, int count);                         // Update textures from arrays
 void UpdateModelAnimations(Model *models, ModelAnimation *animations, int *frames, int count);    // Update model animations from arrays
