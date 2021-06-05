@@ -130,7 +130,6 @@
 //----------------------------------------------------------------------------------
 // Structs
 //----------------------------------------------------------------------------------
-
 // NOTE: The structs below used for drawing via arrays!
 // Circle struct
 typedef struct Circle {
@@ -236,8 +235,8 @@ typedef struct Plane {
 //----------------------------------------------------------------------------------
 // module: core
 //----------------------------------------------------------------------------------
-RLAPI void DownloadFile(const char *src, const char *dir);    					   // Downloads file using curl from link src to folder (path) dir
-RLAPI void Execute(const char *command);                      					   // Executes command via command prompt/terminal
+RLAPI void DownloadFile(const char *src, const char *dir);                           // Downloads file using curl from link src to folder (path) dir
+RLAPI void Execute(const char *command);                                             // Executes command via command prompt/terminal
 
 //----------------------------------------------------------------------------------
 // module: multiples
@@ -261,7 +260,6 @@ RLAPI void DrawPlanes(Plane *planes, int count);                                
 //----------------------------------------------------------------------------------
 // module: shapes
 //----------------------------------------------------------------------------------
-RLAPI bool CheckCollisionLineLine(Vector2 startPos1, Vector2 endPos1, Vector2 startPos2, Vector2 endPos2);  // Check collision between two lines
 RLAPI bool CheckCollisionLineRec(Vector2 startPos, Vector2 endPos, Rectangle rec);                          // Check collision between line and rectangle
 RLAPI bool CheckCollisionCircleLine(Vector2 center, float radius, Vector2 startPos, Vector2 endPos);        // Check collision between circle and line
 RLAPI bool CheckCollisionCubes(Vector3 position1, Vector3 size1, Vector3 position2, Vector3 size2);         // Check collision between two cubes
@@ -273,27 +271,27 @@ RLAPI bool CheckCollisionCubes(Vector3 position1, Vector3 size1, Vector3 positio
 
 // 3D texts
 // NOTE: they are experimental for now (They get buggy sometimes...)
-RLAPI void DrawText3D(const char *text, Vector3 position, Vector3 rotationAxis, float rotationAngle, int fontSize, Color color);                                 							// Draws 2D text in 3D space
-RLAPI void DrawTextEx3D(Font font, const char *text, Vector3 position, Vector3 rotationAxis, float rotationAngle, float fontSize, float spacing, Color tint);   		 					// Draws 2D text with extended parameters in 3D space
-RLAPI void DrawTextCodepoint3D(Font font, int codepoint, Vector3 position, float scale, Vector3 rotationAxis, float rotationAngle, Color tint);                 							// Draws 2D text codepoint in 3D space
+RLAPI void DrawText3D(const char *text, Vector3 position, Vector3 rotationAxis, float rotationAngle, int fontSize, Color color);                                                            // Draws 2D text in 3D space
+RLAPI void DrawTextEx3D(Font font, const char *text, Vector3 position, Vector3 rotationAxis, float rotationAngle, float fontSize, float spacing, Color tint);                               // Draws 2D text with extended parameters in 3D space
+RLAPI void DrawTextCodepoint3D(Font font, int codepoint, Vector3 position, float scale, Vector3 rotationAxis, float rotationAngle, Color tint);                                             // Draws 2D text codepoint in 3D space
 
 // You can draw 2D shapes in 3D space with rotation ;)
-RLAPI void DrawRectangle3D(Vector3 position, Vector2 size, Vector3 rotationAxis, float rotationAngle, Color color);                                             							// Draws 2D rectangle in 3D space
-RLAPI void DrawRectangleStrip3D(Vector3 position, Vector2 size, Vector3 rotationAxis, float rotationAngle, Color color);                                        							// Draws 2D rectangle outline in 3D space
-RLAPI void DrawCircleGradient3D(Vector3 center, float radius, Vector3 rotationAxis, float rotationAngle, Color color1, Color color2);                           							// Draws 2D circle gradient in 3D space
-RLAPI void DrawEllipse3D(Vector3 center, float radiusH, float radiusV, Vector3 rotationAxis, float rotationAngle, Color color);                                 							// Draws 2D ellipse in 3D space
-RLAPI void DrawEllipseStrip3D(Vector3 center, float radiusH, float radiusV, Vector3 rotationAxis, float rotationAngle, Color color);                            							// Draws 2D ellipse outline in 3D space
-RLAPI void DrawRectangleGradientEx3D(Vector3 center, Vector2 size, Vector3 rotationAxis, float rotationAngle, Color col1, Color col2, Color col3, Color col4);  							// Draws 2D rectangle gradient with extended parameters in 3D space
-RLAPI void DrawRectangleGradientH3D(Vector3 center, Vector2 size, Vector3 rotationAxis, float rotationAngle, Color color1, Color color2);                       							// Draws 2D rectangle horizontal gradient in 3D space
-RLAPI void DrawRectangleGradientV3D(Vector3 center, Vector2 size, Vector3 rotationAxis, float rotationAngle, Color color1, Color color2);                       							// Draws 2D rectangle vertical gradient in 3D space
-RLAPI void DrawPoly3D(Vector3 center, int sides, float radius, Vector3 rotationAxis, float rotationAngle, Color color);                                         							// Draws 2D polygon in 3D space
-RLAPI void DrawPolyStrip3D(Vector3 center, int sides, float radius, Vector3 rotationAxis, float rotationAngle, Color color);                                    							// Draws 2D polygon outline in 3D space
-RLAPI void DrawCircleFill3D(Vector3 center, float radius, Vector3 rotationAxis, float rotationAngle, Color color);                                             			 					// Draws 2D filled circle in 3D space
-RLAPI void DrawCircleStrip3D(Vector3 center, float radius, Vector3 rotationAxis, float rotationAngle, Color color);                                             							// Draws 2D circle outline in 3D space
-RLAPI void DrawTriangle3D(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 rotationAxis, float rotationAngle, Color color);                                          							// Draws 2D triangle in 3D space
-RLAPI void DrawTriangleStrip3D(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 rotationAxis, float rotationAngle, Color color);                                     							// Draws 2D triangle outline in 3D space
-RLAPI void DrawLineStrip3D(Vector3 *points, Vector3 rotationAxis, float rotationAngle, int numPoints, Color color);                                             							// Draws 2D line sequents in 3D space
-RLAPI void DrawCircleSector3D(Vector3 center, Vector3 rotationAxis, float rotationAngle, float radius, int startAngle, int endAngle, int segments, Color color);							// Draws sector/part of 2D circle in 3D space
+RLAPI void DrawRectangle3D(Vector3 position, Vector2 size, Vector3 rotationAxis, float rotationAngle, Color color);                                                                         // Draws 2D rectangle in 3D space
+RLAPI void DrawRectangleStrip3D(Vector3 position, Vector2 size, Vector3 rotationAxis, float rotationAngle, Color color);                                                                    // Draws 2D rectangle outline in 3D space
+RLAPI void DrawCircleGradient3D(Vector3 center, float radius, Vector3 rotationAxis, float rotationAngle, Color color1, Color color2);                                                       // Draws 2D circle gradient in 3D space
+RLAPI void DrawEllipse3D(Vector3 center, float radiusH, float radiusV, Vector3 rotationAxis, float rotationAngle, Color color);                                                             // Draws 2D ellipse in 3D space
+RLAPI void DrawEllipseStrip3D(Vector3 center, float radiusH, float radiusV, Vector3 rotationAxis, float rotationAngle, Color color);                                                        // Draws 2D ellipse outline in 3D space
+RLAPI void DrawRectangleGradientEx3D(Vector3 center, Vector2 size, Vector3 rotationAxis, float rotationAngle, Color col1, Color col2, Color col3, Color col4);                              // Draws 2D rectangle gradient with extended parameters in 3D space
+RLAPI void DrawRectangleGradientH3D(Vector3 center, Vector2 size, Vector3 rotationAxis, float rotationAngle, Color color1, Color color2);                                                   // Draws 2D rectangle horizontal gradient in 3D space
+RLAPI void DrawRectangleGradientV3D(Vector3 center, Vector2 size, Vector3 rotationAxis, float rotationAngle, Color color1, Color color2);                                                   // Draws 2D rectangle vertical gradient in 3D space
+RLAPI void DrawPoly3D(Vector3 center, int sides, float radius, Vector3 rotationAxis, float rotationAngle, Color color);                                                                     // Draws 2D polygon in 3D space
+RLAPI void DrawPolyStrip3D(Vector3 center, int sides, float radius, Vector3 rotationAxis, float rotationAngle, Color color);                                                                // Draws 2D polygon outline in 3D space
+RLAPI void DrawCircleFill3D(Vector3 center, float radius, Vector3 rotationAxis, float rotationAngle, Color color);                                                                          // Draws 2D filled circle in 3D space
+RLAPI void DrawCircleStrip3D(Vector3 center, float radius, Vector3 rotationAxis, float rotationAngle, Color color);                                                                         // Draws 2D circle outline in 3D space
+RLAPI void DrawTriangle3D(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 rotationAxis, float rotationAngle, Color color);                                                                      // Draws 2D triangle in 3D space
+RLAPI void DrawTriangleStrip3D(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 rotationAxis, float rotationAngle, Color color);                                                                 // Draws 2D triangle outline in 3D space
+RLAPI void DrawLineStrip3D(Vector3 *points, Vector3 rotationAxis, float rotationAngle, int numPoints, Color color);                                                                         // Draws 2D line sequents in 3D space
+RLAPI void DrawCircleSector3D(Vector3 center, Vector3 rotationAxis, float rotationAngle, float radius, int startAngle, int endAngle, int segments, Color color);                            // Draws sector/part of 2D circle in 3D space
 RLAPI void DrawCircleSectorStrip3D(Vector3 center, Vector3 rotationAxis, float rotationAngle, float radius, int startAngle, int endAngle, int segments, Color color);                       // Draws sector/part outline of 2D circle in 3D space
 RLAPI void DrawRing3D(Vector3 center, Vector3 rotationAxis, float rotationAngle, float innerRadius, float outerRadius, int startAngle, int endAngle, int segments, Color color);            // Draws 2D ring in 3D space
 RLAPI void DrawRingStrip3D(Vector3 center, Vector3 rotationAxis, float rotationAngle, float innerRadius, float outerRadius, int startAngle, int endAngle, int segments, Color color);       // Draws 2D ring outline in 3D space
@@ -307,35 +305,35 @@ RLAPI void DrawTextureSuper(Texture2D texture, int posX, int posY, float rotatio
 //----------------------------------------------------------------------------------
 // module: loaders
 //----------------------------------------------------------------------------------
-RLAPI Image *LoadImages(const char **files, int count);                                     			// Load images from array of images file paths
-RLAPI Texture2D *LoadTextures(const char **files, int count);                               			// Load textures from array of textures file paths
-RLAPI Texture2D *LoadTexturesFromImages(Image *images, int count);                          			// Load textures from array of loaded images
-RLAPI RenderTexture2D *LoadRenderTextures(Vector2 *sizes, int count);                       			// Load render textures from array of widths and heights using Vector2
-RLAPI Font *LoadFonts(const char **files, int count);                                       			// Load fonts from array of fonts file paths
-RLAPI Font *LoadFontsFromImages(Image *images, Color *keys, int *firstChars, int count);    			// Load fonts from loaded images with array of colors as keys and array of integers as first char of each font loaded
-RLAPI Model *LoadModels(const char **files, int count);                                     			// Load models from array of models file paths
-RLAPI Model *LoadModelsFromMeshes(Mesh *meshes, int count);                                 			// Load models from array of loaded meshes
-RLAPI Shader *LoadShaders(const char **files, int count);                                   			// Load shaders from array contains pairs of vertex and fragment shader file paths
-RLAPI Wave *LoadWaves(const char **files, int count);                                      				// Load waves from array of waves file paths
-RLAPI Sound *LoadSounds(const char **files, int count);                                     			// Load sounds from array of sounds file paths
-RLAPI Sound *LoadSoundsFromWaves(Wave *waves, int count);                                   			// Load sounds from array of loaded waves
-RLAPI Music *LoadMusics(const char **files, int count);                                     			// Load music streams from array of musics file paths
+RLAPI Image *LoadImages(const char **files, int count);                                                 // Load images from array of images file paths
+RLAPI Texture2D *LoadTextures(const char **files, int count);                                           // Load textures from array of textures file paths
+RLAPI Texture2D *LoadTexturesFromImages(Image *images, int count);                                      // Load textures from array of loaded images
+RLAPI RenderTexture2D *LoadRenderTextures(Vector2 *sizes, int count);                                   // Load render textures from array of widths and heights using Vector2
+RLAPI Font *LoadFonts(const char **files, int count);                                                   // Load fonts from array of fonts file paths
+RLAPI Font *LoadFontsFromImages(Image *images, Color *keys, int *firstChars, int count);                // Load fonts from loaded images with array of colors as keys and array of integers as first char of each font loaded
+RLAPI Model *LoadModels(const char **files, int count);                                                 // Load models from array of models file paths
+RLAPI Model *LoadModelsFromMeshes(Mesh *meshes, int count);                                             // Load models from array of loaded meshes
+RLAPI Shader *LoadShaders(const char **files, int count);                                               // Load shaders from array contains pairs of vertex and fragment shader file paths
+RLAPI Wave *LoadWaves(const char **files, int count);                                                      // Load waves from array of waves file paths
+RLAPI Sound *LoadSounds(const char **files, int count);                                                 // Load sounds from array of sounds file paths
+RLAPI Sound *LoadSoundsFromWaves(Wave *waves, int count);                                               // Load sounds from array of loaded waves
+RLAPI Music *LoadMusics(const char **files, int count);                                                 // Load music streams from array of musics file paths
 
 //----------------------------------------------------------------------------------
 // module: unloaders
 //----------------------------------------------------------------------------------
-RLAPI void UnloadImages(Image *images, int count);                                  					// Unload images from array
-RLAPI void UnloadTextures(Texture2D *textures, int count);                          					// Unload textures from array
-RLAPI void UnloadRenderTextures(RenderTexture2D *targets, int count);               					// Unload render textures from array
-RLAPI void UnloadFonts(Font *fonts, int count);                                     					// Unload fonts from array
-RLAPI void UnloadModels(Model *models, int count);                                  					// Unload models from array
-RLAPI void UnloadMeshes(Mesh *meshes, int count);                                   					// Unload meshes from array
-RLAPI void UnloadMaterials(Material *materials, int count);                         					// Unload materials from array
-RLAPI void UnloadModelAnimations(ModelAnimation *animations, int count);            					// Unload model animations from array
-RLAPI void UnloadShaders(Shader *shaders, int count);                               					// Unload shaders from array
-RLAPI void UnloadWaves(Wave *waves, int count);                                     					// Unload waves from array
-RLAPI void UnloadSounds(Sound *sounds, int count);                                  					// Unload sounds from array
-RLAPI void UnloadMusics(Music *musics, int count);                                  					// Unload music streams from array
+RLAPI void UnloadImages(Image *images, int count);                                                      // Unload images from array
+RLAPI void UnloadTextures(Texture2D *textures, int count);                                              // Unload textures from array
+RLAPI void UnloadRenderTextures(RenderTexture2D *targets, int count);                                   // Unload render textures from array
+RLAPI void UnloadFonts(Font *fonts, int count);                                                         // Unload fonts from array
+RLAPI void UnloadModels(Model *models, int count);                                                      // Unload models from array
+RLAPI void UnloadMeshes(Mesh *meshes, int count);                                                       // Unload meshes from array
+RLAPI void UnloadMaterials(Material *materials, int count);                                             // Unload materials from array
+RLAPI void UnloadModelAnimations(ModelAnimation *animations, int count);                                // Unload model animations from array
+RLAPI void UnloadShaders(Shader *shaders, int count);                                                   // Unload shaders from array
+RLAPI void UnloadWaves(Wave *waves, int count);                                                         // Unload waves from array
+RLAPI void UnloadSounds(Sound *sounds, int count);                                                      // Unload sounds from array
+RLAPI void UnloadMusics(Music *musics, int count);                                                      // Unload music streams from array
 
 //----------------------------------------------------------------------------------
 // module: updaters
@@ -594,15 +592,15 @@ void DrawTextEx3D(Font font, const char *text, Vector3 position, Vector3 rotatio
 void DrawRectangle3D(Vector3 position, Vector2 size, Vector3 rotationAxis, float rotationAngle, Color color) {
     rlPushMatrix();
     rlRotatef(rotationAngle, rotationAxis.x, rotationAxis.y, rotationAxis.z);
-	rlBegin(RL_TRIANGLES);
-		rlColor4ub(color.r, color.g, color.b, color.a);
-		rlVertex3f(position.x, position.y, position.z);
-		rlVertex3f(position.x + size.x, position.y, position.z);
-		rlVertex3f(position.x, position.y + size.y, position.z);
-		rlVertex3f(position.x, position.y + size.y, position.z);
-		rlVertex3f(position.x + size.x, position.y, position.z);
-		rlVertex3f(position.x + size.x, position.y + size.y, position.z);
-	rlEnd();
+    rlBegin(RL_TRIANGLES);
+        rlColor4ub(color.r, color.g, color.b, color.a);
+        rlVertex3f(position.x, position.y, position.z);
+        rlVertex3f(position.x + size.x, position.y, position.z);
+        rlVertex3f(position.x, position.y + size.y, position.z);
+        rlVertex3f(position.x, position.y + size.y, position.z);
+        rlVertex3f(position.x + size.x, position.y, position.z);
+        rlVertex3f(position.x + size.x, position.y + size.y, position.z);
+    rlEnd();
     rlPopMatrix();
 }
 
@@ -610,13 +608,13 @@ void DrawRectangleStrip3D(Vector3 position, Vector2 size, Vector3 rotationAxis, 
     rlPushMatrix();
     rlRotatef(rotationAngle, rotationAxis.x, rotationAxis.y, rotationAxis.z);
     rlColor4ub(color.r, color.g, color.b, color.a);
-	rlBegin(RL_LINES);
-		rlVertex3f(position.x, position.y, position.z);
-		rlVertex3f(position.x + size.x, position.y, position.z);
-		rlVertex3f(position.x + size.x, position.y, position.z);
-		rlVertex3f(position.x + size.x, position.y + size.y, position.z);
+    rlBegin(RL_LINES);
+        rlVertex3f(position.x, position.y, position.z);
+        rlVertex3f(position.x + size.x, position.y, position.z);
+        rlVertex3f(position.x + size.x, position.y, position.z);
         rlVertex3f(position.x + size.x, position.y + size.y, position.z);
-		rlVertex3f(position.x, position.y + size.y, position.z);
+        rlVertex3f(position.x + size.x, position.y + size.y, position.z);
+        rlVertex3f(position.x, position.y + size.y, position.z);
         rlVertex3f(position.x, position.y + size.y, position.z);
         rlVertex3f(position.x, position.y, position.z);
     rlEnd();
@@ -641,7 +639,7 @@ void DrawEllipse3D(Vector3 center, float radiusH, float radiusV, Vector3 rotatio
 }
 
 void DrawEllipseStrip3D(Vector3 center, float radiusH, float radiusV, Vector3 rotationAxis, float rotationAngle, Color color) {
-	if (rlCheckBufferLimit(2*36)) rlglDraw();
+    if (rlCheckBufferLimit(2*36)) rlglDraw();
     
     rlPushMatrix();
         rlRotatef(rotationAngle, rotationAxis.x, rotationAxis.y, rotationAxis.z);
@@ -687,15 +685,15 @@ void DrawRectangleGradientEx3D(Vector3 center, Vector2 size, Vector3 rotationAxi
 }
 
 void DrawRectangleGradientV3D(Vector3 center, Vector2 size, Vector3 rotationAxis, float rotationAngle, Color color1, Color color2) {
-	DrawRectangleGradientEx3D(center, size, rotationAxis, rotationAngle, color1, color2, color2, color1);
+    DrawRectangleGradientEx3D(center, size, rotationAxis, rotationAngle, color1, color2, color2, color1);
 }
 
 void DrawRectangleGradientH3D(Vector3 center, Vector2 size, Vector3 rotationAxis, float rotationAngle, Color color1, Color color2) {
-	DrawRectangleGradientEx3D(center, size, rotationAxis, rotationAngle, color2, color1, color1, color2);
+    DrawRectangleGradientEx3D(center, size, rotationAxis, rotationAngle, color2, color1, color1, color2);
 }
 
 void DrawPoly3D(Vector3 center, int sides, float radius, Vector3 rotationAxis, float rotationAngle, Color color) {
-	
+    
     if (sides < 3) sides = 3;
     float centralAngle = 0.0f;
 
@@ -720,7 +718,7 @@ void DrawPoly3D(Vector3 center, int sides, float radius, Vector3 rotationAxis, f
 }
 
 void DrawPolyStrip3D(Vector3 center, int sides, float radius, Vector3 rotationAxis, float rotationAngle, Color color) {
-	if (sides < 3) sides = 3;
+    if (sides < 3) sides = 3;
     float centralAngle = 0.0f;
 
     if (rlCheckBufferLimit(3*(360/sides))) rlglDraw();
@@ -788,32 +786,32 @@ void DrawCircleStrip3D(Vector3 center, float radius, Vector3 rotationAxis, float
 }
 
 void DrawTriangle3D(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 rotationAxis, float rotationAngle, Color color) {
-	if (rlCheckBufferLimit(4)) rlglDraw();
-	rlPushMatrix();
-		rlRotatef(rotationAngle, rotationAxis.x, rotationAxis.y, rotationAxis.z);
-		rlBegin(RL_TRIANGLES);
-			rlColor4ub(color.r, color.g, color.b, color.a);
-			rlVertex3f(v1.x, v1.y, v1.z);
-			rlVertex3f(v2.x, v2.y, v2.z);
-			rlVertex3f(v3.x, v3.y, v3.z);
-		rlEnd();
-	rlPopMatrix();
+    if (rlCheckBufferLimit(4)) rlglDraw();
+    rlPushMatrix();
+        rlRotatef(rotationAngle, rotationAxis.x, rotationAxis.y, rotationAxis.z);
+        rlBegin(RL_TRIANGLES);
+            rlColor4ub(color.r, color.g, color.b, color.a);
+            rlVertex3f(v1.x, v1.y, v1.z);
+            rlVertex3f(v2.x, v2.y, v2.z);
+            rlVertex3f(v3.x, v3.y, v3.z);
+        rlEnd();
+    rlPopMatrix();
 }
 
 void DrawTriangleStrip3D(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 rotationAxis, float rotationAngle, Color color) {
-	if (rlCheckBufferLimit(7)) rlglDraw();
-	rlPushMatrix();
-		rlRotatef(rotationAngle, rotationAxis.x, rotationAxis.y, rotationAxis.z);
-		rlBegin(RL_LINES);
-			rlColor4ub(color.r, color.g, color.b, color.a);
-			rlVertex3f(v1.x, v1.y, v1.z);
-			rlVertex3f(v2.x, v2.y, v2.z);
-			rlVertex3f(v2.x, v2.y, v2.z);
-			rlVertex3f(v3.x, v3.y, v3.z);
-			rlVertex3f(v3.x, v3.y, v3.z);
-			rlVertex3f(v1.x, v1.y, v1.z);
-		rlEnd();
-	rlPopMatrix();
+    if (rlCheckBufferLimit(7)) rlglDraw();
+    rlPushMatrix();
+        rlRotatef(rotationAngle, rotationAxis.x, rotationAxis.y, rotationAxis.z);
+        rlBegin(RL_LINES);
+            rlColor4ub(color.r, color.g, color.b, color.a);
+            rlVertex3f(v1.x, v1.y, v1.z);
+            rlVertex3f(v2.x, v2.y, v2.z);
+            rlVertex3f(v2.x, v2.y, v2.z);
+            rlVertex3f(v3.x, v3.y, v3.z);
+            rlVertex3f(v3.x, v3.y, v3.z);
+            rlVertex3f(v1.x, v1.y, v1.z);
+        rlEnd();
+    rlPopMatrix();
 }
 
 void DrawLineStrip3D(Vector3 *points, Vector3 rotationAxis, float rotationAngle, int pointsCount, Color color)
@@ -821,23 +819,23 @@ void DrawLineStrip3D(Vector3 *points, Vector3 rotationAxis, float rotationAngle,
     if (pointsCount >= 2)
     {
         if (rlCheckBufferLimit(pointsCount)) rlglDraw();
-		rlPushMatrix();
-			rlRotatef(rotationAngle, rotationAxis.x, rotationAxis.y, rotationAxis.z);
-			rlBegin(RL_LINES);
-				rlColor4ub(color.r, color.g, color.b, color.a);
+        rlPushMatrix();
+            rlRotatef(rotationAngle, rotationAxis.x, rotationAxis.y, rotationAxis.z);
+            rlBegin(RL_LINES);
+                rlColor4ub(color.r, color.g, color.b, color.a);
 
-				for (int i = 0; i < pointsCount - 1; i++)
-				{
-					rlVertex3f(points[i].x, points[i].y, points[i].z);
-					rlVertex3f(points[i + 1].x, points[i + 1].y, points[i + 1].z);
-				}
-			rlEnd();
-		rlPopMatrix();
+                for (int i = 0; i < pointsCount - 1; i++)
+                {
+                    rlVertex3f(points[i].x, points[i].y, points[i].z);
+                    rlVertex3f(points[i + 1].x, points[i + 1].y, points[i + 1].z);
+                }
+            rlEnd();
+        rlPopMatrix();
     }
 }
 
 void DrawCircleGradient3D(Vector3 center, float radius, Vector3 rotationAxis, float rotationAngle, Color color1, Color color2) {
-	if (rlCheckBufferLimit(3*36)) rlglDraw();
+    if (rlCheckBufferLimit(3*36)) rlglDraw();
     
     rlPushMatrix();
         rlRotatef(rotationAngle, rotationAxis.x, rotationAxis.y, rotationAxis.z);
@@ -856,7 +854,7 @@ void DrawCircleGradient3D(Vector3 center, float radius, Vector3 rotationAxis, fl
 }
 
 void DrawCircleSector3D(Vector3 center, Vector3 rotationAxis, float rotationAngle, float radius, int startAngle, int endAngle, int segments, Color color) {
-	if (radius <= 0.0f) radius = 0.1f;  // Avoid div by zero
+    if (radius <= 0.0f) radius = 0.1f;  // Avoid div by zero
 
     // Function expects (endAngle > startAngle)
     if (endAngle < startAngle)
@@ -881,28 +879,28 @@ void DrawCircleSector3D(Vector3 center, Vector3 rotationAxis, float rotationAngl
     
     float stepLength = (float)(endAngle - startAngle)/(float)segments;
     float angle = startAngle;
-	
-	if (rlCheckBufferLimit(3*segments)) rlglDraw();
-	
-	rlPushMatrix();
-		rlRotatef(rotationAngle, rotationAxis.x, rotationAxis.y, rotationAxis.z);
-		rlBegin(RL_TRIANGLES);
-			for (int i = 0; i < segments; i++)
-			{
-				rlColor4ub(color.r, color.g, color.b, color.a);
+    
+    if (rlCheckBufferLimit(3*segments)) rlglDraw();
+    
+    rlPushMatrix();
+        rlRotatef(rotationAngle, rotationAxis.x, rotationAxis.y, rotationAxis.z);
+        rlBegin(RL_TRIANGLES);
+            for (int i = 0; i < segments; i++)
+            {
+                rlColor4ub(color.r, color.g, color.b, color.a);
 
-				rlVertex3f(center.x, center.y, center.z);
-				rlVertex3f(center.x + sinf(DEG2RAD*angle)*radius, center.y + cosf(DEG2RAD*angle)*radius, center.z);
-				rlVertex3f(center.x + sinf(DEG2RAD*(angle + stepLength))*radius, center.y + cosf(DEG2RAD*(angle + stepLength))*radius, center.z);
+                rlVertex3f(center.x, center.y, center.z);
+                rlVertex3f(center.x + sinf(DEG2RAD*angle)*radius, center.y + cosf(DEG2RAD*angle)*radius, center.z);
+                rlVertex3f(center.x + sinf(DEG2RAD*(angle + stepLength))*radius, center.y + cosf(DEG2RAD*(angle + stepLength))*radius, center.z);
 
-				angle += stepLength;
-			}
-		rlEnd();
-	rlPopMatrix();
+                angle += stepLength;
+            }
+        rlEnd();
+    rlPopMatrix();
 }
 
 void DrawCircleSectorStrip3D(Vector3 center, Vector3 rotationAxis, float rotationAngle, float radius, int startAngle, int endAngle, int segments, Color color) {
-	if (radius <= 0.0f) radius = 0.1f;  // Avoid div by zero issue
+    if (radius <= 0.0f) radius = 0.1f;  // Avoid div by zero issue
 
     // Function expects (endAngle > startAngle)
     if (endAngle < startAngle)
@@ -936,39 +934,39 @@ void DrawCircleSectorStrip3D(Vector3 center, Vector3 rotationAxis, float rotatio
     if ((endAngle - startAngle)%360 == 0) { limit = 2*segments; showCapLines = false; }
 
     if (rlCheckBufferLimit(limit)) rlglDraw();
-	
-	rlPushMatrix();
-		rlRotatef(rotationAngle, rotationAxis.x, rotationAxis.y, rotationAxis.z);
-		rlBegin(RL_LINES);
-			if (showCapLines)
-			{
-				rlColor4ub(color.r, color.g, color.b, color.a);
-				rlVertex3f(center.x, center.y, center.z);
-				rlVertex3f(center.x + sinf(DEG2RAD*angle)*radius, center.y + cosf(DEG2RAD*angle)*radius, center.z);
-			}
+    
+    rlPushMatrix();
+        rlRotatef(rotationAngle, rotationAxis.x, rotationAxis.y, rotationAxis.z);
+        rlBegin(RL_LINES);
+            if (showCapLines)
+            {
+                rlColor4ub(color.r, color.g, color.b, color.a);
+                rlVertex3f(center.x, center.y, center.z);
+                rlVertex3f(center.x + sinf(DEG2RAD*angle)*radius, center.y + cosf(DEG2RAD*angle)*radius, center.z);
+            }
 
-			for (int i = 0; i < segments; i++)
-			{
-				rlColor4ub(color.r, color.g, color.b, color.a);
+            for (int i = 0; i < segments; i++)
+            {
+                rlColor4ub(color.r, color.g, color.b, color.a);
 
-				rlVertex3f(center.x + sinf(DEG2RAD*angle)*radius, center.y + cosf(DEG2RAD*angle)*radius, center.z);
-				rlVertex3f(center.x + sinf(DEG2RAD*(angle + stepLength))*radius, center.y + cosf(DEG2RAD*(angle + stepLength))*radius, center.z);
+                rlVertex3f(center.x + sinf(DEG2RAD*angle)*radius, center.y + cosf(DEG2RAD*angle)*radius, center.z);
+                rlVertex3f(center.x + sinf(DEG2RAD*(angle + stepLength))*radius, center.y + cosf(DEG2RAD*(angle + stepLength))*radius, center.z);
 
-				angle += stepLength;
-			}
+                angle += stepLength;
+            }
 
-			if (showCapLines)
-			{
-				rlColor4ub(color.r, color.g, color.b, color.a);
-				rlVertex3f(center.x, center.y, center.z);
-				rlVertex3f(center.x + sinf(DEG2RAD*angle)*radius, center.y + cosf(DEG2RAD*angle)*radius, center.z);
-			}
-		rlEnd();
-	rlPopMatrix();
+            if (showCapLines)
+            {
+                rlColor4ub(color.r, color.g, color.b, color.a);
+                rlVertex3f(center.x, center.y, center.z);
+                rlVertex3f(center.x + sinf(DEG2RAD*angle)*radius, center.y + cosf(DEG2RAD*angle)*radius, center.z);
+            }
+        rlEnd();
+    rlPopMatrix();
 }
 
 void DrawRing3D(Vector3 center, Vector3 rotationAxis, float rotationAngle, float innerRadius, float outerRadius, int startAngle, int endAngle, int segments, Color color) {
-	if (startAngle == endAngle) return;
+    if (startAngle == endAngle) return;
 
     // Function expects (outerRadius > innerRadius)
     if (outerRadius < innerRadius)
@@ -1012,33 +1010,33 @@ void DrawRing3D(Vector3 center, Vector3 rotationAxis, float rotationAngle, float
 
     float stepLength = (float)(endAngle - startAngle)/(float)segments;
     float angle = startAngle;
-	
-	if (rlCheckBufferLimit(6*segments)) rlglDraw();
-	
-	rlPushMatrix();
-		rlRotatef(rotationAngle, rotationAxis.x, rotationAxis.y, rotationAxis.z);
-		rlBegin(RL_TRIANGLES);
-			for (int i = 0; i < segments; i++)
-			{
-				rlColor4ub(color.r, color.g, color.b, color.a);
+    
+    if (rlCheckBufferLimit(6*segments)) rlglDraw();
+    
+    rlPushMatrix();
+        rlRotatef(rotationAngle, rotationAxis.x, rotationAxis.y, rotationAxis.z);
+        rlBegin(RL_TRIANGLES);
+            for (int i = 0; i < segments; i++)
+            {
+                rlColor4ub(color.r, color.g, color.b, color.a);
 
-				rlVertex3f(center.x + sinf(DEG2RAD*angle)*innerRadius, center.y + cosf(DEG2RAD*angle)*innerRadius, center.z);
-				rlVertex3f(center.x + sinf(DEG2RAD*angle)*outerRadius, center.y + cosf(DEG2RAD*angle)*outerRadius, center.z);
-				rlVertex3f(center.x + sinf(DEG2RAD*(angle + stepLength))*innerRadius, center.y + cosf(DEG2RAD*(angle + stepLength))*innerRadius, center.z);
+                rlVertex3f(center.x + sinf(DEG2RAD*angle)*innerRadius, center.y + cosf(DEG2RAD*angle)*innerRadius, center.z);
+                rlVertex3f(center.x + sinf(DEG2RAD*angle)*outerRadius, center.y + cosf(DEG2RAD*angle)*outerRadius, center.z);
+                rlVertex3f(center.x + sinf(DEG2RAD*(angle + stepLength))*innerRadius, center.y + cosf(DEG2RAD*(angle + stepLength))*innerRadius, center.z);
 
-				rlVertex3f(center.x + sinf(DEG2RAD*(angle + stepLength))*innerRadius, center.y + cosf(DEG2RAD*(angle + stepLength))*innerRadius, center.z);
-				rlVertex3f(center.x + sinf(DEG2RAD*angle)*outerRadius, center.y + cosf(DEG2RAD*angle)*outerRadius, center.z);
-				rlVertex3f(center.x + sinf(DEG2RAD*(angle + stepLength))*outerRadius, center.y + cosf(DEG2RAD*(angle + stepLength))*outerRadius, center.z);
+                rlVertex3f(center.x + sinf(DEG2RAD*(angle + stepLength))*innerRadius, center.y + cosf(DEG2RAD*(angle + stepLength))*innerRadius, center.z);
+                rlVertex3f(center.x + sinf(DEG2RAD*angle)*outerRadius, center.y + cosf(DEG2RAD*angle)*outerRadius, center.z);
+                rlVertex3f(center.x + sinf(DEG2RAD*(angle + stepLength))*outerRadius, center.y + cosf(DEG2RAD*(angle + stepLength))*outerRadius, center.z);
 
-				angle += stepLength;
-			}
-		
-		rlEnd();
-	rlPopMatrix();
+                angle += stepLength;
+            }
+        
+        rlEnd();
+    rlPopMatrix();
 }
 
 void DrawRingStrip3D(Vector3 center, Vector3 rotationAxis, float rotationAngle, float innerRadius, float outerRadius, int startAngle, int endAngle, int segments, Color color) {
-	if (startAngle == endAngle) return;
+    if (startAngle == endAngle) return;
 
     // Function expects (outerRadius > innerRadius)
     if (outerRadius < innerRadius)
@@ -1087,38 +1085,38 @@ void DrawRingStrip3D(Vector3 center, Vector3 rotationAxis, float rotationAngle, 
     if ((endAngle - startAngle)%360 == 0) { limit = 4*segments; showCapLines = false; }
 
     if (rlCheckBufferLimit(limit)) rlglDraw();
-	
-	rlPushMatrix();
-		rlRotatef(rotationAngle, rotationAxis.x, rotationAxis.y, rotationAxis.z);
-		rlBegin(RL_LINES);
-			if (showCapLines)
-			{
-				rlColor4ub(color.r, color.g, color.b, color.a);
-				rlVertex3f(center.x + sinf(DEG2RAD*angle)*outerRadius, center.y + cosf(DEG2RAD*angle)*outerRadius, center.z);
-				rlVertex3f(center.x + sinf(DEG2RAD*angle)*innerRadius, center.y + cosf(DEG2RAD*angle)*innerRadius, center.z);
-			}
+    
+    rlPushMatrix();
+        rlRotatef(rotationAngle, rotationAxis.x, rotationAxis.y, rotationAxis.z);
+        rlBegin(RL_LINES);
+            if (showCapLines)
+            {
+                rlColor4ub(color.r, color.g, color.b, color.a);
+                rlVertex3f(center.x + sinf(DEG2RAD*angle)*outerRadius, center.y + cosf(DEG2RAD*angle)*outerRadius, center.z);
+                rlVertex3f(center.x + sinf(DEG2RAD*angle)*innerRadius, center.y + cosf(DEG2RAD*angle)*innerRadius, center.z);
+            }
 
-			for (int i = 0; i < segments; i++)
-			{
-				rlColor4ub(color.r, color.g, color.b, color.a);
+            for (int i = 0; i < segments; i++)
+            {
+                rlColor4ub(color.r, color.g, color.b, color.a);
 
-				rlVertex3f(center.x + sinf(DEG2RAD*angle)*outerRadius, center.y + cosf(DEG2RAD*angle)*outerRadius, center.z);
-				rlVertex3f(center.x + sinf(DEG2RAD*(angle + stepLength))*outerRadius, center.y + cosf(DEG2RAD*(angle + stepLength))*outerRadius, center.z);
+                rlVertex3f(center.x + sinf(DEG2RAD*angle)*outerRadius, center.y + cosf(DEG2RAD*angle)*outerRadius, center.z);
+                rlVertex3f(center.x + sinf(DEG2RAD*(angle + stepLength))*outerRadius, center.y + cosf(DEG2RAD*(angle + stepLength))*outerRadius, center.z);
 
-				rlVertex3f(center.x + sinf(DEG2RAD*angle)*innerRadius, center.y + cosf(DEG2RAD*angle)*innerRadius, center.z);
-				rlVertex3f(center.x + sinf(DEG2RAD*(angle + stepLength))*innerRadius, center.y + cosf(DEG2RAD*(angle + stepLength))*innerRadius, center.z);
+                rlVertex3f(center.x + sinf(DEG2RAD*angle)*innerRadius, center.y + cosf(DEG2RAD*angle)*innerRadius, center.z);
+                rlVertex3f(center.x + sinf(DEG2RAD*(angle + stepLength))*innerRadius, center.y + cosf(DEG2RAD*(angle + stepLength))*innerRadius, center.z);
 
-				angle += stepLength;
-			}
+                angle += stepLength;
+            }
 
-			if (showCapLines)
-			{
-				rlColor4ub(color.r, color.g, color.b, color.a);
-				rlVertex2f(center.x + sinf(DEG2RAD*angle)*outerRadius, center.y + cosf(DEG2RAD*angle)*outerRadius);
-				rlVertex2f(center.x + sinf(DEG2RAD*angle)*innerRadius, center.y + cosf(DEG2RAD*angle)*innerRadius);
-			}
-		rlEnd();
-	rlPopMatrix();
+            if (showCapLines)
+            {
+                rlColor4ub(color.r, color.g, color.b, color.a);
+                rlVertex2f(center.x + sinf(DEG2RAD*angle)*outerRadius, center.y + cosf(DEG2RAD*angle)*outerRadius);
+                rlVertex2f(center.x + sinf(DEG2RAD*angle)*innerRadius, center.y + cosf(DEG2RAD*angle)*innerRadius);
+            }
+        rlEnd();
+    rlPopMatrix();
 }
 
 void DrawTexture3D(Texture2D texture, Vector3 position, Vector3 rotationAxis, float rotationAngle, float scale, Color tint) {
@@ -1224,16 +1222,6 @@ void DrawTextureSuper(Texture2D texture, int posX, int posY, float rotation, flo
     DrawTextureEx(texture, (Vector2){ (float)posX, (float)posY }, rotation, scale, tint);
 }
 
-bool CheckCollisionLineLine(Vector2 startPos1, Vector2 endPos1, Vector2 startPos2, Vector2 endPos2) {
-    // calculate the direction of the lines
-    float uA = ((endPos2.x - startPos1.x) * (startPos1.y - startPos2.y) - (endPos2.y - startPos2.y) * (startPos1.x - startPos2.x)) / ((endPos2.y - startPos2.y) * (endPos1.x - startPos1.x) - (endPos2.x - startPos2.x) * (endPos1.y - startPos1.y));
-    float uB = ((endPos1.x - startPos1.x) * (startPos1.y - startPos2.y) - (endPos1.y - startPos1.y) * (startPos1.x - startPos2.x)) / ((endPos2.y - startPos2.y) * (endPos1.x - startPos1.x) - (endPos2.x - startPos2.x) * (endPos1.y - startPos1.y));
-
-    // if uA and uB are between 0-1, lines are colliding
-    if (uA >= 0 && uA <= 1 && uB >= 0 && uB <= 1) { return true; }
-    return false;
-}
-
 bool CheckCollisionLineRec(Vector2 startPos, Vector2 endPos, Rectangle rec) {
     // check if the line has hit any of the rectangle's sides
     // uses the Line/Line function below
@@ -1264,14 +1252,14 @@ bool CheckCollisionCircleLine(Vector2 center, float radius, Vector2 startPos, Ve
 }
 
 bool CheckCollisionCubes(Vector3 position1, Vector3 size1, Vector3 position2, Vector3 size2) {
-	if (abs(position1.x - position2.x) < (size1.x + size2.x)) {
-		if (abs(position1.y - position2.y) < (size1.y + size2.y)) {
-			if (abs(position1.z - position2.z) < (size1.z + size2.z)) {
-				return true;
-			}
-		}
-	}
-	return false;
+    if (abs(position1.x - position2.x) < (size1.x + size2.x)) {
+        if (abs(position1.y - position2.y) < (size1.y + size2.y)) {
+            if (abs(position1.z - position2.z) < (size1.z + size2.z)) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 Image *LoadImages(const char **files, int count) {
@@ -1355,75 +1343,75 @@ Music *LoadMusics(const char **files, int count) {
 }
 
 void UnloadImages(Image *images, int count) {
-	for (int i = 0; i < count; i++) UnloadImage(images[i]);
+    for (int i = 0; i < count; i++) UnloadImage(images[i]);
 }
 
 void UnloadTextures(Texture2D *textures, int count) {
-	for (int i = 0; i < count; i++) UnloadTexture(textures[i]);
+    for (int i = 0; i < count; i++) UnloadTexture(textures[i]);
 }
 
 void UnloadRenderTextures(RenderTexture2D *targets, int count) {
-	for (int i = 0; i < count; i++) UnloadRenderTexture(targets[i]);
+    for (int i = 0; i < count; i++) UnloadRenderTexture(targets[i]);
 }
 
 void UnloadFonts(Font *fonts, int count) {
-	for (int i = 0; i < count; i++) UnloadFont(fonts[i]);
+    for (int i = 0; i < count; i++) UnloadFont(fonts[i]);
 }
 
 void UnloadModels(Model *models, int count) {
-	for (int i = 0; i < count; i++) UnloadModel(models[i]);
+    for (int i = 0; i < count; i++) UnloadModel(models[i]);
 }
 
 void UnloadMeshes(Mesh *meshes, int count) {
-	for (int i = 0; i < count; i++) UnloadMesh(meshes[i]);
+    for (int i = 0; i < count; i++) UnloadMesh(meshes[i]);
 }
 
 void UnloadMaterials(Material *materials, int count) {
-	for (int i = 0; i < count; i++) UnloadMaterial(materials[i]);
+    for (int i = 0; i < count; i++) UnloadMaterial(materials[i]);
 }
 
 void UnloadModelAnimations(ModelAnimation *animations, int count) {
-	for (int i = 0; i < count; i++) UnloadModelAnimation(animations[i]);
+    for (int i = 0; i < count; i++) UnloadModelAnimation(animations[i]);
 }
 
 void UnloadShaders(Shader *shaders, int count) {
-	for (int i = 0; i < count; i++) UnloadShader(shaders[i]);
+    for (int i = 0; i < count; i++) UnloadShader(shaders[i]);
 }
 
 void UnloadWaves(Wave *waves, int count) {
-	for (int i = 0; i < count; i++) UnloadWave(waves[i]);
+    for (int i = 0; i < count; i++) UnloadWave(waves[i]);
 }
 
 void UnloadSounds(Sound *sounds, int count) {
-	for (int i = 0; i < count; i++) UnloadSound(sounds[i]);
+    for (int i = 0; i < count; i++) UnloadSound(sounds[i]);
 }
 
 void UnloadMusics(Music *musics, int count) {
-	for (int i = 0; i < count; i++) UnloadMusicStream(musics[i]);
+    for (int i = 0; i < count; i++) UnloadMusicStream(musics[i]);
 }
 
 void UpdateCameras(Camera **cameras, int count) {
-	for (int i = 0; i < count; i++) UpdateCamera(&cameras[i]);
+    for (int i = 0; i < count; i++) UpdateCamera(&cameras[i]);
 }
 
 void UpdateMusics(Music *musics, int count) {
-	for (int i = 0; i < count; i++) UpdateMusicStream(musics[i]);
+    for (int i = 0; i < count; i++) UpdateMusicStream(musics[i]);
 }
 
 void UpdateTextures(Texture2D *textures, const void **pixels, int count) {
-	for (int i = 0; i < count; i++) UpdateTexture(textures[i], &pixels[i]);
+    for (int i = 0; i < count; i++) UpdateTexture(textures[i], &pixels[i]);
 }
 
 void UpdateModelAnimations(Model *models, ModelAnimation *animations, int *frames, int count) {
-	for (int i = 0; i < count; i++) UpdateModelAnimation(models[i], animations[i], frames[i]);
+    for (int i = 0; i < count; i++) UpdateModelAnimation(models[i], animations[i], frames[i]);
 }
 
 void UpdateSounds(Sound *sounds, const void **data, int *samplesCount, int count) {
-	for (int i = 0; i < count; i++) UpdateSound(sounds[i], &data[i], samplesCount[i]);
+    for (int i = 0; i < count; i++) UpdateSound(sounds[i], &data[i], samplesCount[i]);
 }
 
 void UpdateAudioStreams(AudioStream *streams, const void **data, int *samplesCount, int count) {
-	for (int i = 0; i < count; i++) UpdateAudioStream(streams[i], &data[i], samplesCount[i]);
+    for (int i = 0; i < count; i++) UpdateAudioStream(streams[i], &data[i], samplesCount[i]);
 }
 #endif
 #endif

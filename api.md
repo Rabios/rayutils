@@ -229,8 +229,8 @@ typedef struct Plane {
 ### module: core
 
 ```c
-void DownloadFile(const char *src, const char *dir);    					     // Downloads file using curl from link src to folder (path) dir
-void Execute(const char *command);                      						 // Executes command via command prompt/terminal
+void DownloadFile(const char *src, const char *dir);                           // Downloads file using curl from link src to folder (path) dir
+void Execute(const char *command);                                             // Executes command via command prompt/terminal
 ```
 
 ### module: multiples
@@ -256,7 +256,6 @@ void DrawPlanes(Plane *planes, int count);                                    //
 ### module: shapes
 
 ```c
-bool CheckCollisionLineLine(Vector2 startPos1, Vector2 endPos1, Vector2 startPos2, Vector2 endPos2);  // Check collision between two lines
 bool CheckCollisionLineRec(Vector2 startPos, Vector2 endPos, Rectangle rec);                          // Check collision between line and rectangle
 bool CheckCollisionCircleLine(Vector2 center, float radius, Vector2 startPos, Vector2 endPos);        // Check collision between circle and line
 bool CheckCollisionCubes(Vector3 position1, Vector3 size1, Vector3 position2, Vector3 size2);         // Check collision between two cubes
@@ -267,70 +266,70 @@ bool CheckCollisionCubes(Vector3 position1, Vector3 size1, Vector3 position2, Ve
 ```c
 // 3D texts
 // NOTE: they are experimental for now (They get buggy sometimes...)
-void DrawText3D(const char *text, Vector3 position, Vector3 rotationAxis, float rotationAngle, int fontSize, Color color);                                 							// Draws 2D text in 3D space
-void DrawTextEx3D(Font font, const char *text, Vector3 position, Vector3 rotationAxis, float rotationAngle, float fontSize, float spacing, Color tint);   		 					// Draws 2D text with extended parameters in 3D space
-void DrawTextCodepoint3D(Font font, int codepoint, Vector3 position, float scale, Vector3 rotationAxis, float rotationAngle, Color tint);                 							// Draws 2D text codepoint in 3D space
+void DrawText3D(const char *text, Vector3 position, Vector3 rotationAxis, float rotationAngle, int fontSize, Color color);                                                            // Draws 2D text in 3D space
+void DrawTextEx3D(Font font, const char *text, Vector3 position, Vector3 rotationAxis, float rotationAngle, float fontSize, float spacing, Color tint);                               // Draws 2D text with extended parameters in 3D space
+void DrawTextCodepoint3D(Font font, int codepoint, Vector3 position, float scale, Vector3 rotationAxis, float rotationAngle, Color tint);                                             // Draws 2D text codepoint in 3D space
 
 // You can draw 2D shapes in 3D space with rotation ;)
-void DrawRectangle3D(Vector3 position, Vector2 size, Vector3 rotationAxis, float rotationAngle, Color color);                                             							// Draws 2D rectangle in 3D space
-void DrawRectangleStrip3D(Vector3 position, Vector2 size, Vector3 rotationAxis, float rotationAngle, Color color);                                        							// Draws 2D rectangle outline in 3D space
-void DrawCircleGradient3D(Vector3 center, float radius, Vector3 rotationAxis, float rotationAngle, Color color1, Color color2);                           							// Draws 2D circle gradient in 3D space
-void DrawEllipse3D(Vector3 center, float radiusH, float radiusV, Vector3 rotationAxis, float rotationAngle, Color color);                                 							// Draws 2D ellipse in 3D space
-void DrawEllipseStrip3D(Vector3 center, float radiusH, float radiusV, Vector3 rotationAxis, float rotationAngle, Color color);                            							// Draws 2D ellipse outline in 3D space
-void DrawRectangleGradientEx3D(Vector3 center, Vector2 size, Vector3 rotationAxis, float rotationAngle, Color col1, Color col2, Color col3, Color col4);  							// Draws 2D rectangle gradient with extended parameters in 3D space
-void DrawRectangleGradientH3D(Vector3 center, Vector2 size, Vector3 rotationAxis, float rotationAngle, Color color1, Color color2);                       							// Draws 2D rectangle horizontal gradient in 3D space
-void DrawRectangleGradientV3D(Vector3 center, Vector2 size, Vector3 rotationAxis, float rotationAngle, Color color1, Color color2);                       							// Draws 2D rectangle vertical gradient in 3D space
-void DrawPoly3D(Vector3 center, int sides, float radius, Vector3 rotationAxis, float rotationAngle, Color color);                                         							// Draws 2D polygon in 3D space
-void DrawPolyStrip3D(Vector3 center, int sides, float radius, Vector3 rotationAxis, float rotationAngle, Color color);                                    							// Draws 2D polygon outline in 3D space
-void DrawCircleFill3D(Vector3 center, float radius, Vector3 rotationAxis, float rotationAngle, Color color);                                             			 				// Draws 2D filled circle in 3D space
-void DrawCircleStrip3D(Vector3 center, float radius, Vector3 rotationAxis, float rotationAngle, Color color);                                             							// Draws 2D circle outline in 3D space
-void DrawTriangle3D(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 rotationAxis, float rotationAngle, Color color);                                          							// Draws 2D triangle in 3D space
-void DrawTriangleStrip3D(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 rotationAxis, float rotationAngle, Color color);                                     							// Draws 2D triangle outline in 3D space
-void DrawLineStrip3D(Vector3 *points, Vector3 rotationAxis, float rotationAngle, int numPoints, Color color);                                             							// Draws 2D line sequents in 3D space
-void DrawCircleSector3D(Vector3 center, Vector3 rotationAxis, float rotationAngle, float radius, int startAngle, int endAngle, int segments, Color color);							// Draws sector/part of 2D circle in 3D space
-void DrawCircleSectorStrip3D(Vector3 center, Vector3 rotationAxis, float rotationAngle, float radius, int startAngle, int endAngle, int segments, Color color);                     // Draws sector/part outline of 2D circle in 3D space
-void DrawRing3D(Vector3 center, Vector3 rotationAxis, float rotationAngle, float innerRadius, float outerRadius, int startAngle, int endAngle, int segments, Color color);          // Draws 2D ring in 3D space
-void DrawRingStrip3D(Vector3 center, Vector3 rotationAxis, float rotationAngle, float innerRadius, float outerRadius, int startAngle, int endAngle, int segments, Color color);     // Draws 2D ring outline in 3D space
-void DrawGridEx(Vector3 center, Vector3 rotationAxis, float rotationAngle, int slices, float spacing, Color color1, Color color2);                                                  // Draws 3D grid with extended parameters
-void DrawTexture3D(Texture2D texture, Vector3 position, Vector3 rotationAxis, float rotationAngle, float scale, Color tint);                                                        // Draws 2D texture in 3D space
-void DrawTextureEx3D(Texture2D texture, Vector3 position, Vector3 rotationAxis, float rotationAngle, float scale, Color tint);                                                      // Draws 2D texture in 3D space with extended parameters
-void DrawTexturePro3D(Texture2D texture, Rectangle sourceRec, Rectangle destRec, Vector3 origin, Vector3 rotationAxis, float rotationAngle, float posZ, Color tint);                // Draws 2D texture in 3D space with pro parameters
-void DrawTextureSuper(Texture2D texture, int posX, int posY, float rotation, float scale, Color tint);                                                                              // Same as DrawTexture but with scale and rotation
+void DrawRectangle3D(Vector3 position, Vector2 size, Vector3 rotationAxis, float rotationAngle, Color color);                                                                         // Draws 2D rectangle in 3D space
+void DrawRectangleStrip3D(Vector3 position, Vector2 size, Vector3 rotationAxis, float rotationAngle, Color color);                                                                    // Draws 2D rectangle outline in 3D space
+void DrawCircleGradient3D(Vector3 center, float radius, Vector3 rotationAxis, float rotationAngle, Color color1, Color color2);                                                       // Draws 2D circle gradient in 3D space
+void DrawEllipse3D(Vector3 center, float radiusH, float radiusV, Vector3 rotationAxis, float rotationAngle, Color color);                                                             // Draws 2D ellipse in 3D space
+void DrawEllipseStrip3D(Vector3 center, float radiusH, float radiusV, Vector3 rotationAxis, float rotationAngle, Color color);                                                        // Draws 2D ellipse outline in 3D space
+void DrawRectangleGradientEx3D(Vector3 center, Vector2 size, Vector3 rotationAxis, float rotationAngle, Color col1, Color col2, Color col3, Color col4);                              // Draws 2D rectangle gradient with extended parameters in 3D space
+void DrawRectangleGradientH3D(Vector3 center, Vector2 size, Vector3 rotationAxis, float rotationAngle, Color color1, Color color2);                                                   // Draws 2D rectangle horizontal gradient in 3D space
+void DrawRectangleGradientV3D(Vector3 center, Vector2 size, Vector3 rotationAxis, float rotationAngle, Color color1, Color color2);                                                   // Draws 2D rectangle vertical gradient in 3D space
+void DrawPoly3D(Vector3 center, int sides, float radius, Vector3 rotationAxis, float rotationAngle, Color color);                                                                     // Draws 2D polygon in 3D space
+void DrawPolyStrip3D(Vector3 center, int sides, float radius, Vector3 rotationAxis, float rotationAngle, Color color);                                                                // Draws 2D polygon outline in 3D space
+void DrawCircleFill3D(Vector3 center, float radius, Vector3 rotationAxis, float rotationAngle, Color color);                                                                          // Draws 2D filled circle in 3D space
+void DrawCircleStrip3D(Vector3 center, float radius, Vector3 rotationAxis, float rotationAngle, Color color);                                                                         // Draws 2D circle outline in 3D space
+void DrawTriangle3D(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 rotationAxis, float rotationAngle, Color color);                                                                      // Draws 2D triangle in 3D space
+void DrawTriangleStrip3D(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 rotationAxis, float rotationAngle, Color color);                                                                 // Draws 2D triangle outline in 3D space
+void DrawLineStrip3D(Vector3 *points, Vector3 rotationAxis, float rotationAngle, int numPoints, Color color);                                                                         // Draws 2D line sequents in 3D space
+void DrawCircleSector3D(Vector3 center, Vector3 rotationAxis, float rotationAngle, float radius, int startAngle, int endAngle, int segments, Color color);                            // Draws sector/part of 2D circle in 3D space
+void DrawCircleSectorStrip3D(Vector3 center, Vector3 rotationAxis, float rotationAngle, float radius, int startAngle, int endAngle, int segments, Color color);                       // Draws sector/part outline of 2D circle in 3D space
+void DrawRing3D(Vector3 center, Vector3 rotationAxis, float rotationAngle, float innerRadius, float outerRadius, int startAngle, int endAngle, int segments, Color color);            // Draws 2D ring in 3D space
+void DrawRingStrip3D(Vector3 center, Vector3 rotationAxis, float rotationAngle, float innerRadius, float outerRadius, int startAngle, int endAngle, int segments, Color color);       // Draws 2D ring outline in 3D space
+void DrawGridEx(Vector3 center, Vector3 rotationAxis, float rotationAngle, int slices, float spacing, Color color1, Color color2);                                                    // Draws 3D grid with extended parameters
+void DrawTexture3D(Texture2D texture, Vector3 position, Vector3 rotationAxis, float rotationAngle, float scale, Color tint);                                                          // Draws 2D texture in 3D space
+void DrawTextureEx3D(Texture2D texture, Vector3 position, Vector3 rotationAxis, float rotationAngle, float scale, Color tint);                                                        // Draws 2D texture in 3D space with extended parameters
+void DrawTexturePro3D(Texture2D texture, Rectangle sourceRec, Rectangle destRec, Vector3 origin, Vector3 rotationAxis, float rotationAngle, float posZ, Color tint);                  // Draws 2D texture in 3D space with pro parameters
+void DrawTextureSuper(Texture2D texture, int posX, int posY, float rotation, float scale, Color tint);                                                                                // Same as DrawTexture but with scale and rotation
 ```
 
 ### module: loaders
 
 ```c
-Image *LoadImages(const char **files, int count);                                     			// Load images from array of images file paths
-Texture2D *LoadTextures(const char **files, int count);                               			// Load textures from array of textures file paths
-Texture2D *LoadTexturesFromImages(Image *images, int count);                          			// Load textures from array of loaded images
-RenderTexture2D *LoadRenderTextures(Vector2 *sizes, int count);                       			// Load render textures from array of widths and heights using Vector2
-Font *LoadFonts(const char **files, int count);                                       			// Load fonts from array of fonts file paths
-Font *LoadFontsFromImages(Image *images, Color *keys, int *firstChars, int count);    			// Load fonts from loaded images with array of colors as keys and array of integers as first char of each font loaded
-Model *LoadModels(const char **files, int count);                                     			// Load models from array of models file paths
-Model *LoadModelsFromMeshes(Mesh *meshes, int count);                                 			// Load models from array of loaded meshes
-Shader *LoadShaders(const char **files, int count);                                   			// Load shaders from array contains pairs of vertex and fragment shader file paths
-Wave *LoadWaves(const char **files, int count);                                      			// Load waves from array of waves file paths
-Sound *LoadSounds(const char **files, int count);                                     			// Load sounds from array of sounds file paths
-Sound *LoadSoundsFromWaves(Wave *waves, int count);                                   			// Load sounds from array of loaded waves
-Music *LoadMusics(const char **files, int count);                                     			// Load music streams from array of musics file paths
+Image *LoadImages(const char **files, int count);                                                 // Load images from array of images file paths
+Texture2D *LoadTextures(const char **files, int count);                                           // Load textures from array of textures file paths
+Texture2D *LoadTexturesFromImages(Image *images, int count);                                      // Load textures from array of loaded images
+RenderTexture2D *LoadRenderTextures(Vector2 *sizes, int count);                                   // Load render textures from array of widths and heights using Vector2
+Font *LoadFonts(const char **files, int count);                                                   // Load fonts from array of fonts file paths
+Font *LoadFontsFromImages(Image *images, Color *keys, int *firstChars, int count);                // Load fonts from loaded images with array of colors as keys and array of integers as first char of each font loaded
+Model *LoadModels(const char **files, int count);                                                 // Load models from array of models file paths
+Model *LoadModelsFromMeshes(Mesh *meshes, int count);                                             // Load models from array of loaded meshes
+Shader *LoadShaders(const char **files, int count);                                               // Load shaders from array contains pairs of vertex and fragment shader file paths
+Wave *LoadWaves(const char **files, int count);                                                      // Load waves from array of waves file paths
+Sound *LoadSounds(const char **files, int count);                                                 // Load sounds from array of sounds file paths
+Sound *LoadSoundsFromWaves(Wave *waves, int count);                                               // Load sounds from array of loaded waves
+Music *LoadMusics(const char **files, int count);                                                 // Load music streams from array of musics file paths
 ```
 
 ### module: unloaders
 
 ```c
-void UnloadImages(Image *images, int count);                                  					// Unload images from array
-void UnloadTextures(Texture2D *textures, int count);                          					// Unload textures from array
-void UnloadRenderTextures(RenderTexture2D *targets, int count);               					// Unload render textures from array
-void UnloadFonts(Font *fonts, int count);                                     					// Unload fonts from array
-void UnloadModels(Model *models, int count);                                  					// Unload models from array
-void UnloadMeshes(Mesh *meshes, int count);                                   					// Unload meshes from array
-void UnloadMaterials(Material *materials, int count);                         					// Unload materials from array
-void UnloadModelAnimations(ModelAnimation *animations, int count);            					// Unload model animations from array
-void UnloadShaders(Shader *shaders, int count);                               					// Unload shaders from array
-void UnloadWaves(Wave *waves, int count);                                     					// Unload waves from array
-void UnloadSounds(Sound *sounds, int count);                                  					// Unload sounds from array
-void UnloadMusics(Music *musics, int count);                                  					// Unload music streams from array
+void UnloadImages(Image *images, int count);                                                      // Unload images from array
+void UnloadTextures(Texture2D *textures, int count);                                              // Unload textures from array
+void UnloadRenderTextures(RenderTexture2D *targets, int count);                                   // Unload render textures from array
+void UnloadFonts(Font *fonts, int count);                                                         // Unload fonts from array
+void UnloadModels(Model *models, int count);                                                      // Unload models from array
+void UnloadMeshes(Mesh *meshes, int count);                                                       // Unload meshes from array
+void UnloadMaterials(Material *materials, int count);                                             // Unload materials from array
+void UnloadModelAnimations(ModelAnimation *animations, int count);                                // Unload model animations from array
+void UnloadShaders(Shader *shaders, int count);                                                   // Unload shaders from array
+void UnloadWaves(Wave *waves, int count);                                                         // Unload waves from array
+void UnloadSounds(Sound *sounds, int count);                                                      // Unload sounds from array
+void UnloadMusics(Music *musics, int count);                                                      // Unload music streams from array
 ```
 
 ### module: updaters
