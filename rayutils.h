@@ -268,7 +268,6 @@ RLAPI bool CheckCollisionCubes(Vector3 position1, Vector3 size1, Vector3 positio
 //----------------------------------------------------------------------------------
 // module: models
 //----------------------------------------------------------------------------------
-
 // 3D texts
 // NOTE: they are experimental for now (They get buggy sometimes...)
 RLAPI void DrawText3D(const char *text, Vector3 position, Vector3 rotationAxis, float rotationAngle, int fontSize, Color color);                                                            // Draws 2D text in 3D space
